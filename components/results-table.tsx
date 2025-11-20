@@ -1,117 +1,268 @@
-import { Search, ChevronDown, ArrowUpDown, Flag } from 'lucide-react'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
 const students = [
-  { id: 1, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 2, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 3, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 4, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 5, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 6, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 7, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
-  { id: 8, name: "Student, UX", grade: "Grade 2 (433)", domains: ["Grade 2", "Grade 4", "Grade 2", "Grade 3"], growth: { typical: 15, stretch: 35 }, alert: true },
+  {
+    id: 1,
+    name: "Kramer, Maya",
+    grade: "Mid 3 (553)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Late 3", "Late 3", "Grade 2"],
+    growth: { typical: 17, stretch: 21 },
+    alert: false,
+  },
+  {
+    id: 2,
+    name: "Lal, Mia",
+    grade: "Early 3 (541)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Early 3", "Early 3", "Late 3"],
+    growth: { typical: 22, stretch: 39 },
+    alert: false,
+  },
+  {
+    id: 3,
+    name: "Romero, Isaiah",
+    grade: "Early 3 (541)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Early 3", "Mid 3", "Mid 3"],
+    growth: { typical: 22, stretch: 39 },
+    alert: false,
+  },
+  {
+    id: 4,
+    name: "Melton, Abby",
+    grade: "Early 3 (524)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Late 3", "Mid 3", "Grade 1"],
+    growth: { typical: 22, stretch: 39 },
+    alert: false,
+  },
+  {
+    id: 5,
+    name: "Montez, Zarita",
+    grade: "Early 3 (524)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Late 3", "Mid 3", "Grade 1"],
+    growth: { typical: 22, stretch: 39 },
+    alert: false,
+  },
+  {
+    id: 6,
+    name: "Sharpe, Lucy",
+    grade: "Grade 2 (508)",
+    domains: ["Not Assessed", "Grade 2", "Surpassed Level", "Grade 2", "Mid 3", "Grade 2"],
+    growth: { typical: 26, stretch: 40 },
+    alert: false,
+  },
+  {
+    id: 7,
+    name: "Shaw, Miguel",
+    grade: "Grade 2 (507)",
+    domains: ["Not Assessed", "Mid 3", "Surpassed Level", "Grade 2", "Early 3", "Grade 2"],
+    growth: { typical: 26, stretch: 40 },
+    alert: false,
+  },
+  {
+    id: 8,
+    name: "Lopez, Jessie",
+    grade: "Grade 2 (506)",
+    domains: ["Not Assessed", "Surpassed Level", "Surpassed Level", "Early 3", "Grade 1", "Grade 2"],
+    growth: { typical: 26, stretch: 40 },
+    alert: false,
+  },
+  {
+    id: 9,
+    name: "Do, Brian",
+    grade: "Grade 2 (489)",
+    domains: ["Not Assessed", "Grade 2", "Surpassed Level", "Early 3", "Grade 1", "Grade 2"],
+    growth: { typical: 26, stretch: 40 },
+    alert: false,
+  },
+  {
+    id: 10,
+    name: "Farrell, Alvaro",
+    grade: "Grade 2 (489)",
+    domains: ["Not Assessed", "Early 3", "Surpassed Level", "Grade 2", "Grade 2", "Grade 1"],
+    growth: { typical: 26, stretch: 40 },
+    alert: false,
+  },
+  {
+    id: 11,
+    name: "Holland, Tarak",
+    grade: "Grade 1 (472)",
+    domains: ["Not Assessed", "Grade K", "Grade 2", "Grade 1", "Grade 1", "Grade 2"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 12,
+    name: "McDaniel, Jazmin",
+    grade: "Grade 1 (472)",
+    domains: ["Not Assessed", "Grade 1", "Surpassed Level", "Grade 2", "Grade 2", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 13,
+    name: "Phillips, Austin",
+    grade: "Grade 1 (469)",
+    domains: ["Not Assessed", "Grade 1", "Surpassed Level", "Grade 1", "Grade 2", "Grade 2"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 14,
+    name: "Jenkins, Deven",
+    grade: "Grade 1 (468)",
+    domains: ["Not Assessed", "Grade K", "Grade 2", "Grade 1", "Grade 1", "Grade 2"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 15,
+    name: "Harvey, Ivan",
+    grade: "Grade 1 (458)",
+    domains: ["Not Assessed", "Grade K", "Grade 2", "Grade 2", "Grade 1", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 16,
+    name: "Simon, William",
+    grade: "Grade 1 (455)",
+    domains: ["Not Assessed", "Grade K", "Grade 1", "Grade 2", "Grade 1", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 17,
+    name: "Combs, Natalie",
+    grade: "Grade 1 (454)",
+    domains: ["Not Assessed", "Grade 1", "Surpassed Level", "Grade 1", "Grade 1", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 18,
+    name: "Finch, Carla",
+    grade: "Grade 1 (450)",
+    domains: ["Not Assessed", "Grade K", "Grade 1", "Grade 2", "Grade 1", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 19,
+    name: "Moreno, Nicolas",
+    grade: "Grade 1 (446)",
+    domains: ["Not Assessed", "Grade 2", "Surpassed Level", "Grade 1", "Grade 1", "Grade 1"],
+    growth: { typical: 33, stretch: 63 },
+    alert: false,
+  },
+  {
+    id: 20,
+    name: "Noel, Asher",
+    grade: "Grade K (415)",
+    domains: ["Not Assessed", "Grade 1", "Surpassed Level", "Grade 1", "Grade K", "Grade K"],
+    growth: { typical: 36, stretch: 79 },
+    alert: false,
+  },
+  {
+    id: 21,
+    name: "Shin, Hee",
+    grade: "Not Completed",
+    domains: ["—", "—", "—", "—", "—", "—"],
+    growth: { typical: "—", stretch: "—" },
+    alert: false,
+  },
 ]
 
 export function ResultsTable() {
   return (
     <div className="bg-white border rounded-lg shadow-sm overflow-hidden">
-      {/* Table Controls */}
-      <div className="p-4 border-b bg-gray-50 flex items-center justify-between gap-4">
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <Input placeholder="Student" className="pl-9 bg-white" />
-        </div>
-        <Select defaultValue="overall">
-          <SelectTrigger className="w-[200px] bg-white">
-            <SelectValue placeholder="Select View" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="overall">Overall Placement & Scale Score</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
       {/* Table Header */}
-      <div className="grid grid-cols-[250px_180px_1fr_200px] border-b bg-gray-50 text-sm text-gray-600">
-        <div className="p-4 font-medium"></div>
-        <div className="p-4 font-medium border-l"></div>
-        <div className="border-l">
-          <div className="p-2 text-center border-b bg-gray-100">Placement by Domain</div>
-          <div className="grid grid-cols-4">
-            {["NO", "ALG", "MS", "GEO"].map((domain) => (
-              <div key={domain} className="p-2 text-center border-r last:border-r-0 flex items-center justify-center gap-1 cursor-pointer hover:bg-gray-100">
-                {domain} <ArrowUpDown className="h-3 w-3" />
+      <div className="grid grid-cols-[180px_140px_1fr_140px] border-b bg-gray-100 text-sm text-gray-600">
+        {/* Added Search input to the first column header */}
+        <div className="p-2 flex items-center justify-center border-r border-gray-200">
+          <div className="relative w-full">
+            <span className="font-bold text-gray-700 block text-center">Student</span>
+          </div>
+        </div>
+
+        {/* Added Overall Placement dropdown to the second column header */}
+        <div className="p-2 flex items-center justify-center border-r border-gray-200 text-center">
+          <div className="flex flex-col items-center leading-tight">
+            <span className="font-bold text-gray-700">Overall Placement &</span>
+            <span className="font-bold text-gray-700">Scale Score</span>
+          </div>
+        </div>
+
+        <div className="border-r border-gray-200">
+          <div className="p-2 text-center border-b border-gray-200 bg-gray-100 text-xs font-bold text-gray-700">
+            Placement by Domain
+          </div>
+          <div className="grid grid-cols-6 h-[40px]">
+            {["PA", "PH", "HFW", "VOC", "LIT", "INFO"].map((domain) => (
+              <div
+                key={domain}
+                className="p-1 text-center border-r border-gray-200 last:border-r-0 flex items-center justify-center text-[10px] font-bold text-gray-700"
+              >
+                {domain}
               </div>
             ))}
           </div>
         </div>
-        <div className="border-l">
-          <div className="p-2 text-center border-b bg-white">
-            <Select defaultValue="annual">
-              <SelectTrigger className="h-7 border-0 bg-transparent text-xs font-medium">
-                <SelectValue placeholder="Annual Growth Measures" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="annual">Annual Growth Measures</SelectItem>
-              </SelectContent>
-            </Select>
+        <div>
+          <div className="p-2 text-center border-b border-gray-200 bg-gray-100 text-xs font-bold text-gray-700">
+            Annual Growth Measures
           </div>
-          <div className="grid grid-cols-2">
-            <div className="p-2 text-center border-r text-xs flex items-center justify-center gap-1">
-              Typical Growth <ArrowUpDown className="h-3 w-3" />
+          <div className="grid grid-cols-2 h-[40px]">
+            <div className="p-1 text-center border-r border-gray-200 text-[10px] leading-tight flex flex-col items-center justify-center bg-gray-100 font-bold text-gray-700">
+              Typical
+              <br />
+              Growth
             </div>
-            <div className="p-2 text-center text-xs flex items-center justify-center gap-1">
-              Stretch Growth® <ArrowUpDown className="h-3 w-3" />
+            <div className="p-1 text-center text-[10px] leading-tight flex flex-col items-center justify-center bg-gray-100 font-bold text-gray-700">
+              Stretch
+              <br />
+              Growth®
             </div>
           </div>
         </div>
       </div>
 
       {/* Table Body */}
-      <div className="divide-y">
+      <div className="divide-y divide-gray-200">
         {students.map((student) => (
-          <div key={student.id} className="grid grid-cols-[250px_180px_1fr_200px] hover:bg-gray-50">
-            <div className="p-4 flex items-center text-blue-600 font-medium cursor-pointer hover:underline">
+          <div key={student.id} className="grid grid-cols-[180px_140px_1fr_140px] hover:bg-gray-50 text-xs">
+            <div className="p-2 flex items-center text-blue-600 font-medium cursor-pointer hover:underline border-r border-gray-200">
               {student.name}
             </div>
-            <div className="p-4 border-l flex items-start gap-2">
-              <div className="mt-1">
-                <div className="h-4 w-4 rounded-full bg-red-500/20 flex items-center justify-center">
-                  <div className="h-2 w-2 rounded-full bg-red-500" />
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-900">{student.grade}</div>
-                {student.alert && (
-                  <Flag className="h-4 w-4 text-red-400 mt-1 fill-red-400" />
-                )}
-              </div>
+            <div className="p-2 border-r border-gray-200 flex items-center justify-center text-center font-medium">
+              {student.grade}
             </div>
-            <div className="border-l grid grid-cols-4">
-              {student.domains.map((domain, i) => (
-                <div 
-                  key={i} 
-                  className="p-4 border-r last:border-r-0 flex items-center justify-center text-gray-600 bg-[repeating-linear-gradient(45deg,transparent,transparent_5px,#fee2e2_5px,#fee2e2_10px)]"
-                >
-                  {domain}
-                </div>
-              ))}
+            <div className="border-r border-gray-200 grid grid-cols-6">
+              {student.domains.map((domain, i) => {
+                let bgClass = "bg-white"
+                if (domain === "Not Assessed") bgClass = "bg-gray-100 text-gray-400 text-[10px] leading-tight"
+                else if (domain === "Surpassed Level") bgClass = "bg-green-100 text-green-700 text-[10px] leading-tight"
+                else if (domain.includes("Grade K") || domain.includes("Grade 1"))
+                  bgClass = "bg-red-50 text-red-700" // Simplified logic for "below level" styling
+                else if (domain.includes("Grade 2")) bgClass = "bg-yellow-50 text-yellow-700"
+                else if (domain.includes("Early 3") || domain.includes("Mid 3") || domain.includes("Late 3"))
+                  bgClass = "bg-green-50 text-green-700"
+
+                return (
+                  <div
+                    key={i}
+                    className={`p-1 border-r border-gray-200 last:border-r-0 flex items-center justify-center text-center ${bgClass}`}
+                  >
+                    {domain === "Not Assessed"
+                      ? "Not\nAssessed"
+                      : domain === "Surpassed Level"
+                        ? "Surpassed\nLevel"
+                        : domain}
+                  </div>
+                )
+              })}
             </div>
-            <div className="border-l grid grid-cols-2">
-              <div className="p-4 border-r flex items-center justify-center text-gray-900">
+            <div className="grid grid-cols-2">
+              <div className="p-2 border-r border-gray-200 flex items-center justify-center">
                 {student.growth.typical}
               </div>
-              <div className="p-4 flex items-center justify-center text-gray-900">
-                {student.growth.stretch}
-              </div>
+              <div className="p-2 flex items-center justify-center">{student.growth.stretch}</div>
             </div>
           </div>
         ))}

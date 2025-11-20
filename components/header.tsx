@@ -6,6 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import Image from 'next/image'
 
 export function Header() {
   return (
@@ -14,8 +15,13 @@ export function Header() {
         <div className="flex items-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-red-500 via-yellow-500 to-green-500 rounded-md" />
-            <span className="text-xl font-semibold text-gray-800">i-Ready</span>
+            <Image 
+              src="/iready-logo.png" 
+              alt="i-Ready" 
+              width={120} 
+              height={32}
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Navigation */}
@@ -27,8 +33,8 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Option 1</DropdownMenuItem>
-                <DropdownMenuItem>Option 2</DropdownMenuItem>
+                <DropdownMenuItem>Student Roster</DropdownMenuItem>
+                <DropdownMenuItem>All Settings</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -39,8 +45,8 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Option 1</DropdownMenuItem>
-                <DropdownMenuItem>Option 2</DropdownMenuItem>
+                <DropdownMenuItem>Reading</DropdownMenuItem>
+                <DropdownMenuItem>Math</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -51,8 +57,8 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Option 1</DropdownMenuItem>
-                <DropdownMenuItem>Option 2</DropdownMenuItem>
+                <DropdownMenuItem>Class</DropdownMenuItem>
+                <DropdownMenuItem>Student</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -75,7 +81,7 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="text-blue-500 hover:text-blue-600">
               <UserCircle className="mr-2 h-5 w-5" />
-              Kaylee Castillo <ChevronDown className="ml-1 h-4 w-4" />
+              Teacher&apos;s Insight Ed <ChevronDown className="ml-1 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
